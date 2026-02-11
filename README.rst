@@ -4,7 +4,7 @@
 .. _Installation guide: https://docs.searxng.org/admin/installation.html
 .. _Configuration guide: https://docs.searxng.org/admin/settings/index.html
 .. _CONTRIBUTING: https://github.com/searxng/searxng/blob/master/CONTRIBUTING.rst
-.. _LICENSE: https://github.com/searxng/searxng/blob/master/LICENSE
+.. _LICENSE: https://github.com/HasCoding/search/blob/master/LICENSE
 
 .. figure:: https://raw.githubusercontent.com/HasCoding/search/refs/heads/master/searx/static/themes/simple/img/arama.png
    :target: https://arama.hascoding.com
