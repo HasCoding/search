@@ -2,7 +2,24 @@
 {% from 'simple/icons.html' import icon_big %}
 {% block content %}
 <div class="index">
-    <div class="title"><h1>SearXNG</h1></div>
+    <div class="title">
+        <h1>Arama.HasCoding</h1>
+    </div>
     {% include 'simple/simple_search.html' %}
 </div>
+
+<script>
+    // URL parametrelerini al
+    const params = new URLSearchParams(window.location.search);
+
+    // Eğer "aranan" parametresi varsa
+    if (params.has("aranan")) {
+        const kelime = params.get("aranan");
+        // /search?q=kelime adresine yönlendir
+        window.location.href = "/search?q=" + encodeURIComponent(kelime);
+    }
+</script>
+
+
 {% endblock %}
+

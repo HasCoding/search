@@ -1,8 +1,13 @@
+<style>
+  .theme-light #search_header
+  {
+    background-color: #fff;
+  }
+</style>
 <form id="search" method="{{ method or 'POST' }}" action="{{ url_for('search') }}" role="search">
   <div id="search_header">
     <a id="search_logo" href="{{ url_for('index') }}" tabindex="0" title="{{ _('Display the front page') }}">
-      <span hidden>SearXNG</span>
-      {% include 'simple/searxng-wordmark.min.svg' without context %}
+        <img src="{{ url_for('static', filename='img/favicon.ico') }}" alt="{{ instance_name }}" width="40px" height="40px">
     </a>
     <div id="search_view">
       <div class="search_box">

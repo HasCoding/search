@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="endpoint" content="{{ endpoint }}">
-  <meta name="description" content="SearXNG — a privacy-respecting, open metasearch engine">
-  <meta name="keywords" content="SearXNG, search, search engine, metasearch, meta search">
-  <meta name="generator" content="searxng/{{ searx_version }}">
+  <meta name="description" content="Arama.HasCoding — a privacy-respecting, open metasearch engine">
+  <meta name="keywords" content="Arama.HasCoding, search, search engine, metasearch, meta search">
+  <meta name="generator" content="HasCodingCMS">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noarchive">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,6 @@
   <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ opensearch_url }}">
   {% endblock %}
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" sizes="any">
-  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
   <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicon.png') }}">
 </head>
 <body class="{{ endpoint }}_endpoint" >
@@ -42,9 +41,13 @@
 
     <nav id="links_on_top">
       {%- from 'simple/icons.html' import icon_big -%}
-      {%- block linkto_about -%}
-        <a href="{{ url_for('info', pagename='about') }}" class="link_on_top_about">{{ icon_big('information-circle') }}<span>{{ _('About') }}</span></a>
-      {%- endblock -%}
+<!--      {%- block linkto_about -%}-->
+<!--        <a href="{{ url_for('info', pagename='about') }}" class="link_on_top_about">{{ icon_big('information-circle') }}<span>{{ _('About') }}</span></a>-->
+<!--      {%- endblock -%}-->
+
+        <a href="https://speedtest.hascoding.com/">Hız Testi</a>
+        <a href="https://maps.hascoding.com/">Harita</a>
+
       {%- block linkto_donate -%}
         {%- if donation_url -%}
         <a href="{{ donation_url }}" class="link_on_top_donate">{{ icon_big('heart') }}<span>{{ _('Donate') }}</span></a>
@@ -63,25 +66,37 @@
     {% block content %}
     {% endblock %}
   </main>
+  <style>
+      .theme-light footer
+      {
+            background-color: #f0f0f0;
+            color: #333;
+      }
+      ul#footer_links
+      {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          padding: 0;
+          list-style: none;
+          flex-direction: row;
+          a{
+                color: inherit;
+                text-decoration: none;
+                font-size: 14px;
+          }
+      }
+  </style>
   <footer>
-    <p>
-    {{ _('Powered by') }} <a href="{{ url_for('info', pagename='about') }}">SearXNG</a> - {{ searx_version }} — {{ _('a privacy-respecting, open metasearch engine') }}<br>
-        <a href="{{ searx_git_url }}">{{ _('Source code') }}</a>
-        | <a href="{{ get_setting('brand.issue_url') }}">{{ _('Issue tracker') }}</a>
-        {% if enable_metrics %}| <a href="{{ url_for('stats') }}">{{ _('Engine stats') }}</a>{% endif %}
-        {% if get_setting('brand.public_instances') %}
-        | <a href="{{ get_setting('brand.public_instances') }}">{{ _('Public instances') }}</a>
-        {% endif %}
-        {% if get_setting('general.privacypolicy_url') %}
-        | <a href="{{ get_setting('general.privacypolicy_url') }}">{{ _('Privacy policy') }}</a>
-        {% endif %}
-        {% if get_setting('general.contact_url') %}
-        | <a href="{{ get_setting('general.contact_url') }}">{{ _('Contact instance maintainer') }}</a>
-        {% endif %}
-        {% for title, link in get_setting('brand.custom.links').items() %}
-        | <a href="{{ link }}">{{ _(title) }}</a>
-        {% endfor %}
-    </p>
+      <ul id="footer_links">
+          <li><a href="https://hascoding.com/pages/gizlilik-politikasi">Gizlilik Politikası</a></li>
+          <li><a href="https://hascoding.com/pages/sartlar-ve-kosullar">Şartlar ve Koşullar</a></li>
+          <li><a href="https://hascoding.com/services.html">Tüm Servisler</a></li>
+          <li><a href="https://hascoding.com/pages/daha-iyi-hizmet-icin">Daha iyi hizmet için</a></li>
+          <li><a href="https://hascoding.com/contact">İletişim</a></li>
+          <li><a href="https://hascoding.com" target="_blank">2026 © HasCoding</a></li>
+      </ul>
   </footer>
 </body>
 </html>
